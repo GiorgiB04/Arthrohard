@@ -8,6 +8,7 @@ Welcome to **Arthrohard**, a web-based application designed to provide an engagi
 - **img/** - Holds image assets utilized within the application.
 - **index.html** - The main HTML file serving as the entry point of the application.
 - **script.js** - JavaScript file responsible for interactive functionalities.
+- **link to api** - [api](https://brandstestowy.smallhost.pl/api/random)
 - **styles.css** - CSS file managing the visual styling and layout.
 
 ## 🚀 Getting Started
