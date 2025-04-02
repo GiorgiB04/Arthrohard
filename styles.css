@@ -158,7 +158,7 @@ body {
 .ingredients-list,
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 150px;
   padding: 20px;
   justify-content: center;
@@ -531,7 +531,7 @@ footer {
     visibility: hidden;
   }
   .feature-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   }
   .ingredients-list {
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -838,7 +838,6 @@ img {
   }
   .selector {
     width: 100%;
-    padding: 0.95rem;
     background: #ab303c;
     color: white;
     font-size: 16px;
