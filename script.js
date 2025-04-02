@@ -66,7 +66,12 @@ function showPopup(product) {
 closePopup.addEventListener("click", () => {
   popup.style.display = "none";
 });
-
+// Close popup when clicking the overlay
+popup.addEventListener("click", (event) => {
+  if (event.target === popup) {
+    popup.style.display = "none";
+  }
+});
 // Load more products on scroll
 window.addEventListener("scroll", () => {
   if (
@@ -102,3 +107,10 @@ hamburger.addEventListener("click", () => {
 });
 
 // Active Nav Link
+const navLinks = document.querySelectorAll("#nav a");
+navLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    navLinks.forEach((l) => l.classList.remove("active"));
+    link.classList.add("active");
+  });
+});

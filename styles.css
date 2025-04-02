@@ -47,12 +47,13 @@ body {
   border-bottom: 1px solid #333;
   transition-duration: 0.9s;
 }
+.active {
+  font-weight: bold;
+}
 .highlight {
   color: #ab303c;
 }
-.font-bold {
-  font-weight: bold;
-}
+
 .hero {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -158,7 +159,7 @@ body {
 .feature-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
+  gap: 150px;
   padding: 20px;
   justify-content: center;
   margin: 0 10%;
@@ -227,6 +228,13 @@ body {
   justify-content: center;
   margin-top: auto;
   padding-top: 50px;
+  padding-bottom: 21px;
+  position: relative;
+}
+
+.feature_img_wrap:hover {
+  border-bottom: 1px solid #000000;
+  padding-bottom: 20px;
 }
 
 #ingredients_section {
@@ -351,7 +359,6 @@ body {
   margin-top: 50px;
   width: 50%;
   margin: 0 auto;
-  transform-style: preserve-3d;
 }
 .piesiek_img {
   width: 100%;
@@ -511,24 +518,12 @@ footer {
 }
 /* Media queries for 1024 screens */
 @media screen and (max-width: 1024px) {
-  .feature_middle_img {
-    height: 300px; /* Adjust height for smaller screens */
-  }
   .hero-title {
     font-size: 0px;
     visibility: hidden;
   }
   .feature-grid {
-    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  }
-  .feature_img {
-    height: 200px; /* Adjust height for smaller screens */
-  }
-  .feature_middle_img {
-    height: 200px; /* Adjust height for smaller screens */
-  }
-  .feature_list_item {
-    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
   .ingredients-list {
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
@@ -581,9 +576,6 @@ footer {
   .nav_link:hover {
     border-bottom: 1px solid #333;
     transition-duration: 0.9s;
-  }
-  .nav_link.active {
-    color: #ad4844;
   }
 }
 
@@ -652,22 +644,64 @@ footer {
 
 /* Responsive Styles */
 img {
-  max-width: 100%;
   height: auto;
   display: block; /* Removes extra space below images */
 }
 
 /* Specific adjustments for feature images */
 .feature_middle_img {
-  max-width: 100%;
-  height: 290px;
+  width: 38%;
   border-radius: 10px;
+  z-index: 2;
 }
 
 .feature_img {
-  height: 290px;
   border-radius: 10px;
   margin-top: 20px;
+  width: 80%;
+  z-index: 2;
+}
+
+/* Adjust the vector images */
+.vector_mini_1 {
+  position: absolute;
+  top: 40%;
+  left: 0;
+  z-index: 1;
+}
+
+.vector_mini_2 {
+  position: absolute;
+  top: 30%;
+  right: 0;
+  z-index: 1;
+  transform: rotate(23deg);
+}
+.vector_mini_3 {
+  position: absolute;
+  top: 35%;
+  left: 0;
+  z-index: 1;
+  transform: rotate(196deg);
+}
+.vector_mini_4 {
+  position: absolute;
+  top: 45%;
+  right: 5%;
+  z-index: 1;
+}
+.vector_mini_5 {
+  position: absolute;
+  top: 30%;
+  left: 0;
+  z-index: 1;
+}
+.vector_mini_6 {
+  position: absolute;
+  top: 35%;
+  right: 2%;
+  z-index: 1;
+  transform: rotate(194deg);
 }
 
 /* Adjust the hero section images */
@@ -708,12 +742,7 @@ img {
   .piesek_img_right {
     width: 15%; /* Further reduce size on small screens */
   }
-  .feature_img {
-    height: 290px; /* Adjust height for smaller screens */
-  }
-  .feature_middle_img {
-    height: 290px; /* Adjust height for smaller screens */
-  }
+
   .hero-title {
     font-size: 0px;
     visibility: hidden;
@@ -722,9 +751,6 @@ img {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
 
-  .feature_middle_img {
-    height: 200px; /* Adjust height for smaller screens */
-  }
   .feature_list_item {
     justify-content: center;
   }
@@ -740,27 +766,9 @@ img {
     height: 200px;
   }
 }
-/* Media queries for 320 screens */
-@media screen and (min-width: 320px) {
-  .feature_img {
-    height: 200px; /* Adjust height for smaller screens */
-  }
-  .feature_middle_img {
-    height: 200px; /* Adjust height for smaller screens */
-  }
-  .feature_list_item {
-    justify-content: center;
-  }
-}
 
 /* Media queries for 425 screens */
 @media screen and (max-width: 425px) {
-  .feature_img {
-    height: 250px; /* Adjust height for smaller screens */
-  }
-  .feature_middle_img {
-    height: 250px; /* Adjust height for smaller screens */
-  }
   .feature_list_item {
     justify-content: center;
   }
@@ -774,4 +782,55 @@ img {
     width: 120px;
     height: 120px;
   }
+}
+
+/* Parallax */
+.piesek_wrap {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.piesiek_img_left,
+.piesiek_img_right {
+  position: absolute;
+  will-change: transform;
+}
+
+.piesiek_img_left {
+  left: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: parallax-left 10s infinite linear alternate;
+}
+
+.piesiek_img_right {
+  right: 10%;
+  top: 50%;
+  transform: translateY(-50%);
+  animation: parallax-right 10s infinite linear alternate;
+}
+
+@keyframes parallax-left {
+  from {
+    transform: translateY(-50%) translateX(-10px);
+  }
+  to {
+    transform: translateY(-50%) translateX(10px);
+  }
+}
+
+@keyframes parallax-right {
+  from {
+    transform: translateY(-50%) translateX(10px);
+  }
+  to {
+    transform: translateY(-50%) translateX(-10px);
+  }
+}
+
+/* Image sizes */
+@media (min-width: 1024px) {
 }
