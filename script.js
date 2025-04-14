@@ -153,7 +153,6 @@ window.addEventListener("scroll", () => {
   });
 });
 
-// ✅ Parallax Scroll Effect for piesiek_section
 // ✅ Parallax scroll for piesiek_section
 window.addEventListener("scroll", () => {
   const scrollY = window.scrollY;
